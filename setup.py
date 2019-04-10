@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from data_cpi.util.env import PROJECT_NAME
 
 
-dependencies = [
+dependencies: list = [
     # 'econtools',
 ]
 

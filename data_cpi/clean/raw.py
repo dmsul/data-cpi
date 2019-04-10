@@ -3,7 +3,7 @@ import urllib.request
 
 import pandas as pd
 
-from util import data_path, src_path, load_or_build
+from data_cpi.util import data_path, src_path, load_or_build
 
 
 def cpi_deflator(year: int) -> pd.DataFrame:
