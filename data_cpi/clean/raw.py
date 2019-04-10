@@ -1,7 +1,7 @@
 import os
+import urllib.request
 
 import pandas as pd
-import requests
 
 from util import data_path, src_path, load_or_build
 
@@ -62,9 +62,7 @@ def download_all_items_series() -> None:
 
     all_items_url = \
         r'https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems'
-    with open(filepath, 'w') as f:
-        page = requests.get(all_items_url)
-        f.write(page.text)
+    urllib.request.urlretrieve(all_items_url, filepath)
 
 
 def allitems_src_path() -> str:
