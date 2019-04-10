@@ -1,6 +1,7 @@
 from os import path
 import socket
 
+
 # Check which machine we're on
 HOST = socket.gethostname()
 if HOST in ('sullivan-7d', 'sullivan-10d'):

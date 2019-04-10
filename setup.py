@@ -4,7 +4,7 @@ from data_cpi.util.env import PROJECT_NAME
 
 
 dependencies = [
-    'econtools',
+    # 'econtools',
 ]
 
 setup(
