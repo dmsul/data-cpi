@@ -38,10 +38,9 @@ def cpi_allitems_urban(monthly: bool=False) -> pd.DataFrame:
                        .str.replace('M', '')
                        .astype(int))
         idx_cols = ['year', 'month']
-        df = df.set_index()
     else:
         df = df[df['period'] == 'M13']
-        idx_cols = 'year'
+        idx_cols = ['year']
 
     df = df.set_index(idx_cols)
 
