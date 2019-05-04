@@ -3,21 +3,32 @@ from setuptools import setup, find_packages
 from data_cpi.util.env import PROJECT_NAME
 
 
-dependencies: list = [
-    # 'econtools',
-]
+def readme():
+    try:
+        with open('README.md') as f:
+            return f.read()
+    except IOError:
+        return ''
+
+
+description = 'Access to CPI data.'
+
+dependencies = ['econtools', ]
 
 setup(
     name=PROJECT_NAME,
     version='0.0.1',
-    description='Access to CPI data.',
+    description=description,
+    long_description=readme(),
+    url=f'http://github.com/dmsul/{PROJECT_NAME}',
     author='Daniel M. Sullivan',
+    author_email='sullydm@gmail.com',
     packages=find_packages(),
     tests_require=[
         'pytest',
     ],
     package_data={PROJECT_NAME.replace('-', '_'): ["py.typed"]},
-    install_requires=dependencies,
+    # include_package_data=True,        # To copy stuff in `MANIFEST.in`
+    # install_requires=dependencies,
     zip_safe=False,
-    license='BSD'
 )
