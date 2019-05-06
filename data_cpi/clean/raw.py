@@ -6,16 +6,6 @@ import pandas as pd
 from data_cpi.util import data_path, src_path, load_or_build
 
 
-def cpi_deflator(year: int) -> pd.DataFrame:
-    """ Multiply by this number to get deflated dollars """
-    df = cpi_allitems_urban()
-
-    df[f'deflate_to_{year}'] = df.loc[year, 'value'] / df['value']
-    del df['value']
-
-    return df
-
-
 @load_or_build(data_path('cpi_allitems_urban_monthly-{monthly}.pkl'))
 def cpi_allitems_urban(monthly: bool=False) -> pd.DataFrame:
     """ U.S. All items, 1982-84=100 """
@@ -67,7 +57,3 @@ def download_all_items_series() -> None:
 
 def allitems_src_path() -> str:
     return src_path('cu.data.1.AllItems.txt')
-
-
-if __name__ == "__main__":
-    df = cpi_deflator(2015)
